@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/free-vector/beautiful-decorative-soft-colorful-watercolor-texture-background_1055-14290.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2 {
+            color: #008CBA; /* Set heading color */
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            display: inline-block;
+            padding: 10px;
+            font-size: 18px;
+            background-color: #008CBA; /* Set background color for the link */
+            color: #fff; /* Set text color for the link */
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #005680; /* Set background color on hover */
+        }
+
+        img {
+            max-width: 100%; /* Ensure images don't exceed their container width */
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Alzheimer’s Disease detection game</h1><br>
+    <h2>Select your level:</h2><br><br>
+    <ul>
+        <li><a href="{{ url_for('memory_game', element_type='alphabet', difficulty='easy') }}">Easy (Alphabet)</a>
+        <a href="{{ url_for('memory_game', element_type='alphabet', difficulty='medium') }}">Medium (Alphabet)</a>
+        <a href="{{ url_for('memory_game', element_type='alphabet', difficulty='hard') }}">Hard (Alphabet)</a></li><br><br>
+        <li><a href="{{ url_for('memory_game', element_type='symbols', difficulty='easy') }}">Easy (Symbols)</a>
+        <a href="{{ url_for('memory_game', element_type='symbols', difficulty='medium') }}">Medium (Symbols)</a>
+        <a href="{{ url_for('memory_game', element_type='symbols', difficulty='hard') }}">Hard (Symbols)</a></li><br><br>
+        <li><a href="{{ url_for('memory_game', element_type='words', difficulty='easy') }}">Easy (Words)</a>
+        <a href="{{ url_for('memory_game', element_type='words', difficulty='medium') }}">Medium (Words)</a>
+        <a href="{{ url_for('memory_game', element_type='words', difficulty='hard') }}">Hard (Words)</a></li>
+     
+    </ul>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory game</title>
+    <style>
+        body {
+            font-family: Poppins;
+            background-image: url('https://img.freepik.com/free-vector/beautiful-decorative-soft-colorful-watercolor-texture-background_1055-14290.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            color: #333; /* Set heading color */
+        }
+
+        .sequence-element {
+            display: inline-block;
+            font-size: 24px;
+            padding: 10px;
+            margin: 10px;
+            background-color: #2A363B; /* Set background color for sequence elements */
+            color: #fff; /* Set text color for sequence elements */
+            border-radius: 5px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+            font-size: 18px;
+            border: 1px solid #ccc; /* Set border color for input fields */
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 18px;
+            background-color:#2A363B; /* Set background color for the button */
+            color: #fff; /* Set text color for the button */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005680; /* Set background color on hover */
+        }
+    </style>
+    <script>
+    
+        function hideSequence() {
+            setTimeout(function () {
+                var sequenceElements = document.getElementsByClassName('sequence-element');
+                for (var i = 0; i < sequenceElements.length; i++) {
+                    sequenceElements[i].style.visibility = 'hidden';
+                }
+            }, 5000);
+        }
+
+       
+        window.onload = hideSequence;
+    </script>
+</head>
+<body>
+    <h1>Ready to go!</h1>
+    <form action="/check_sequence" method="post">
+        {% for number in sequence %}
+            <label class="sequence-element">{{ number }}</label>
+            <input type="text" name="user_input[]" required>
+        {% endfor %}
+        <br><br><br>
+        <center>
+        <button type="submit">Let's Check</button>
+        </center>
+    </form>
+</body>
+</html>
